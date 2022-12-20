@@ -8,6 +8,7 @@ cred = credentials.Certificate("riddle.json")
 firebase_admin.initialize_app(cred)
 db = firestore.client()
 
+app = Flask(__name__)
 @app.route("/webhook", methods=["POST"])
 def webhook():
     req = request.get_json(force=True)
