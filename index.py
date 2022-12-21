@@ -15,12 +15,6 @@ def webhook():
     action =  req.get("queryResult").get("action")
     if(action == "keywordchoice"):
         keyword = req.get("queryResult").get("parameters").get("keyword")
-        if (keyword == "物品"):
-            keyword = "物品)"
-        elif (keyword == "地方"):
-            keyword = "地方"
-        info = "您選擇的謎語類別是：" + keyword + "->\n"
-
         collection_ref = db.collection("item")
         docs = collection_ref.get()
         result = ""
