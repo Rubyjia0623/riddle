@@ -21,10 +21,10 @@ def webhook():
         for doc in docs:
             dict = doc.to_dict()
 #            if keyword in dict["sort"]:
-                result += "題目：" + dict["Question"] + "\n"
-                result += "答案：" + dict["Answer"] + "\n"
-                result += "相關資料：" + dict["Explanation"] + "\n"
-                result += "連結：" + dict["Link"] + "\n"
+             result += "題目：" + dict["Question"] + "\n"
+             result += "答案：" + dict["Answer"] + "\n"
+             result += "相關資料：" + dict["Explanation"] + "\n"
+             result += "連結：" + dict["Link"] + "\n"
         info += result
     return make_response(jsonify({"fulfillmentText": info}))
 
