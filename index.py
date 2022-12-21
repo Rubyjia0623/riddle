@@ -12,7 +12,7 @@ def webhook():
     req = request.get_json(force=True)
     action =  req.get("queryResult").get("action")
     if(action == "keywordchoice"):
-        keyword = req.get("queryResult").get("parameters").get("keyword");
+        keyword = req.get("queryResult").get("parameters").get("keyword")
         if (keyword == "物品"):
             keyword = "物品)"
         elif (keyword == "地方"):
