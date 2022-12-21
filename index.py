@@ -16,22 +16,14 @@ def webhook():
     action =  req.get("queryResult").get("action")
     if(action == "keywordchoice"):
         keyword = req.get("queryResult").get("parameters").get("keyword")
-        if (keyword == "物品"):
-            keyword = "物品"
-        elif (keyword == "地方"):
-            keyword = "地方"
-        info = "您選擇的謎語類別是：" + keyword + "->\n"
-
-        collection_ref = db.collection("item")
+        collection_ref = db.collection("aaa")
         docs = collection_ref.get()
         result = ""
-        for doc in docs:
-            dict = doc.to_dict()
-            if keyword in dict["sort"]:
-                result += "題目：" + dict["Question"] + "\n"
-                result += "答案：" + dict["Answer"] + "\n"
-                result += "相關資料：" + dict["Explanation"] + "\n"
-                result += "連結：" + dict["Link"] + "\n"
+        dict = doc.to_dict()
+        result += "題目：" + dict["Question"] + "\n"
+        result += "答案：" + dict["Answer"] + "\n"
+        result += "相關資料：" + dict["Explanation"] + "\n"
+        result += "連結：" + dict["Link"] + "\n"
         info += result
     return make_response(jsonify({"fulfillmentText": info}))
 
