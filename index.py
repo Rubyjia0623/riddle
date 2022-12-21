@@ -1,3 +1,5 @@
+from flask import Flask, render_template, request, make_response, jsonify
+
 import firebase_admin
 import random
 from firebase_admin import credentials, firestore
