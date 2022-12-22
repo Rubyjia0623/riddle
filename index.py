@@ -16,12 +16,12 @@ def webhook():
     info = ""
     if(action == "keywordchoice"):
         keyword = req.get("queryResult").get("parameters").get("keyword")
-        collection_ref = db.collection("item")
+        collection_ref = db.collection("aaa")
         docs = collection_ref.get()
         result = ""
         for doc in docs:
             dict = doc.to_dict()
-            if keyword in dict["sort"]:
+            if(keyword==dict[sort])
                 result += "題目：" + dict["Question"] + "\n"
                 result += "答案：" + dict["Answer"] + "\n"
                 result += "相關資料：" + dict["Explanation"] + "\n"
